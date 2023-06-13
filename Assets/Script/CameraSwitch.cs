@@ -13,21 +13,21 @@ public class CameraSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Key 1"))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             cam1.SetActive(true);
             cam2.SetActive(false);
             cam3.SetActive(false);
             cam4.SetActive(false);
         }
-        if (Input.GetButtonDown("Key 2"))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             cam1.SetActive(false);
             cam2.SetActive(true);
             cam3.SetActive(false);
             cam4.SetActive(false);
         }
-        if (Input.GetButtonDown("Key 3"))
+        if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             cam1.SetActive(false);
             cam2.SetActive(false);
@@ -35,7 +35,7 @@ public class CameraSwitch : MonoBehaviour
             cam4.SetActive(false);
 
         }
-        if (Input.GetButtonDown("Key 4"))
+        if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             cam1.SetActive(false);
             cam2.SetActive(false);

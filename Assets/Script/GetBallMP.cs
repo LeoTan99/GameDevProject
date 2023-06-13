@@ -10,7 +10,7 @@ public class GetBallMP : MonoBehaviour
     public float force = 10f;
 
     PhotonView view;
-    private bool isStickToPlayer;
+    public bool isStickToPlayer;
     private GameObject ball;
     private Vector3 previousLocation;
     [SerializeField] private AudioSource SoundEffect;
@@ -55,5 +55,17 @@ public class GetBallMP : MonoBehaviour
             }
         }
 
+    }
+
+    public void AIShoot()
+    {
+        Debug.Log("AI Have kicked");
+        SoundEffect.Play();
+        isStickToPlayer = false;
+        Rigidbody ballRigidbody = ball.GetComponent<Rigidbody>();
+        Vector3 shootDirection = transform.forward;
+        //shootDirection.y += 0.5f;
+
+        ballRigidbody.AddForce(shootDirection * force, ForceMode.Impulse);
     }
 }

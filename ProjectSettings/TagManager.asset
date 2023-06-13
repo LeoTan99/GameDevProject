@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ball
+  - Spongebob
+  - Patrick
+  - Squidward
+  - KrabbyPatty
+  - AIGoalDetectArea
   layers:
   - Default
   - TransparentFX

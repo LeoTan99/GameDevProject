@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController _controller;
 
     [SerializeField]
-    private float _playerSpeed = 5f;
+    public float _playerSpeed = 5f;
 
     [SerializeField]
     private float _rotationSpeed = 10f;
