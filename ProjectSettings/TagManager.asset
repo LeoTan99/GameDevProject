@@ -10,6 +10,7 @@ TagManager:
   - Squidward
   - KrabbyPatty
   - AIGoalDetectArea
+  - toKrabbyPatty
   layers:
   - Default
   - TransparentFX

@@ -5,34 +5,48 @@ using TMPro;
 public class Goal : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI pointText;
     public int score = 0;
+    public int point = 0;
+    
     public Transform spawnPoint;
     [SerializeField] private AudioSource SoundEffect;
     public GameObject particleSystem;
-    // private int previousScore = 0;
+
+    public float speed = 5f;
+    bool moveKrabbyPatty;
+    public GameObject target;
+
+    void Start()
+    {
+        target = GameObject.FindGameObjectWithTag("toKrabbyPatty");
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Ball"))
         {
             score++;
+            point = point + 10;
             scoreText.text = score.ToString();
+            pointText.text = point.ToString();
             SoundEffect.Play();
             particleSystem.SetActive(true);
+            moveKrabbyPatty = true;
             
             Rigidbody ballRb = other.GetComponent<Rigidbody>();
             ballRb.velocity = Vector3.zero;
             ballRb.angularVelocity = Vector3.zero;
             other.gameObject.transform.position = spawnPoint.position;
 
-            // Play the particle system if score increases
-            // if (score > previousScore && particleSystem != null)
-            // {
-            //     particleSystem.Play();
-            // }
-            
-            // previousScore = score;
         }
-        //particleSystem.SetActive(false);
+    }
+
+    void Update()
+    {
+        if(moveKrabbyPatty)
+        {
+            transform.position = Vector3.Lerp(transform.position, target.transform.position, speed * Time.deltaTime);
+        }
     }
 }
