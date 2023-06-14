@@ -15,12 +15,12 @@ public class Goal : MonoBehaviour
 
     public float speed = 5f;
     bool moveKrabbyPatty;
-    public GameObject target;
+    // public GameObject target;
 
-    void Start()
-    {
-        target = GameObject.FindGameObjectWithTag("toKrabbyPatty");
-    }
+    // void Start()
+    // {
+    //     target = GameObject.FindGameObjectWithTag("toKrabbyPatty");
+    // }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -32,7 +32,7 @@ public class Goal : MonoBehaviour
             pointText.text = point.ToString();
             SoundEffect.Play();
             particleSystem.SetActive(true);
-            moveKrabbyPatty = true;
+            // moveKrabbyPatty = true;
             
             Rigidbody ballRb = other.GetComponent<Rigidbody>();
             ballRb.velocity = Vector3.zero;
@@ -42,11 +42,11 @@ public class Goal : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        if(moveKrabbyPatty)
-        {
-            transform.position = Vector3.Lerp(transform.position, target.transform.position, speed * Time.deltaTime);
-        }
-    }
+    // void Update()
+    // {
+    //     if(moveKrabbyPatty)
+    //     {
+    //         transform.position = Vector3.Lerp(transform.position, target.transform.position, speed * Time.deltaTime);
+    //     }
+    // }
 }

@@ -1,31 +1,59 @@
-// using System.Collections;
-// using System.Collections.Generic;
-// using UnityEngine;
-// using TMPro;
-// using DG.Tweening;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+using DG.Tweening;
 
-// public class KrabbyPattyPoint : MonoBehaviour
-// {
-//     [SerializeField] private GameObject pileOfKrabbyPatty;
-//     [SerializeField] private TextMeshProUGUI counter;
-//     [SerializeField] private Vector2[] initialPos;
-//     [SerializeField] private Quaternion[] initialRotation;
-//     [SerializeField] private int krabbyPattyAmount;
-//     void Start()
-//     {
+public class KrabbyPattyPoint : MonoBehaviour
+{
+    [SerializeField] private GameObject pileOfKrabbyPatty;
+    [SerializeField] private TextMeshProUGUI counter;
+    [SerializeField] private Vector2[] initialPos;
+    [SerializeField] private Quaternion[] initialRotation;
+    [SerializeField] private int krabbyPattyAmount;
+    //0.5504991
+    void Start()
+    {
         
-//         if (krabbyPattyAmount == 0) 
-//             krabbyPattyAmount = 10; // you need to change this value based on the number of coins in the inspector
+        if (krabbyPattyAmount == 0) 
+            krabbyPattyAmount = 10; // you need to change this value based on the number of coins in the inspector
         
-//         initialPos = new Vector2[krabbyPattyAmount];
-//         initialRotation = new Quaternion[krabbyPattyAmount];
+        initialPos = new Vector2[krabbyPattyAmount];
+        initialRotation = new Quaternion[krabbyPattyAmount];
         
-//         for (int i = 0; i < pileOfKrabbyPatty.transform.childCount; i++)
-//         {
-//             initialPos[i] = pileOfKrabbyPatty.transform.GetChild(i).GetComponent<RectTransform>().anchoredPosition;
-//             initialRotation[i] = pileOfKrabbyPatty.transform.GetChild(i).GetComponent<RectTransform>().rotation;
-//         }
-//     }
+        for (int i = 0; i < pileOfKrabbyPatty.transform.childCount; i++)
+        {
+            initialPos[i] = pileOfKrabbyPatty.transform.GetChild(i).GetComponent<RectTransform>().anchoredPosition;
+            initialRotation[i] = pileOfKrabbyPatty.transform.GetChild(i).GetComponent<RectTransform>().rotation;
+        }
+    }
+
+    private void Reset()
+    {
+        for (int i = 0; i < pileOfKrabbyPatty.transform.childCount; i++)
+        {
+            pileOfKrabbyPatty.transform.GetChild(i).position = initialPos[i];
+            pileOfKrabbyPatty.transform.GetChild(i).rotation = initialRotation[i];
+        }
+    }
+
+    public void RewardPileOfKrabbyPatty(int noKrabbyPatty)
+    {
+        Reset();
+
+        var delay = 0f;
+        pileOfKrabbyPatty.SetActive(true);
+
+        for (int i = 0; i < pileOfKrabbyPatty.transform.childCount; i++)
+        {
+            pileOfKrabbyPatty.transform.GetChild(i).DOScale(1f, 0.3f).SetDelay(delay).SetEase(Ease.OutBack);
+            pileOfKrabbyPatty.transform.GetChild(i).GetComponent<RectTransform>().DOAnchorPos(new Vector2(-702f, 485f), 0.8f).SetDelay(delay + 0.5f).SetEase(Ease.OutBack);
+
+            pileOfKrabbyPatty.transform.GetChild(i).DOScale(1f, 0.3f).SetDelay(delay + 0.1f).SetEase(Ease.OutBack);
+
+            delay += 0.2f;
+        }
+    }
 
 
 //    public void CountKrabbyPatty()
@@ -62,4 +90,4 @@
 //         counter.text = PlayerPrefs.GetInt("CountDollar").ToString();
 //         PlayerPrefs.SetInt("BPrize",0);
 //     }
-// }
+}
