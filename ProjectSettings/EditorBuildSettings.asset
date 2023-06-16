@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameMP.unity
     guid: f2367bb1d9c33a04299222e49a33fa49
+  - enabled: 1
+    path: Assets/Scenes/Asyiqin/CharacterSelection.unity
+    guid: 37f0451b0cfacba418e50194a6043797
+  - enabled: 1
+    path: Assets/Scenes/Asyiqin/GameTesting.unity
+    guid: afc36b588424ae546a0bdd426e6bb96d
   m_configObjects: {}
