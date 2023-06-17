@@ -11,6 +11,8 @@ TagManager:
   - KrabbyPatty
   - AIGoalDetectArea
   - toKrabbyPatty
+  - Target
+  - VenomProjectile
   layers:
   - Default
   - TransparentFX
