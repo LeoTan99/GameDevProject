@@ -1312,7 +1312,7 @@ GameObject:
   - component: {fileID: 4767692402935596667}
   m_Layer: 0
   m_Name: Target_Cam
-  m_TagString: Untagged
+  m_TagString: CameraTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1324,9 +1324,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4767692402935596664}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.160001, y: 11.050001, z: 1.1599998}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 12.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5017159001442923013}
@@ -1574,9 +1574,11 @@ GameObject:
   - component: {fileID: 5686734796749334713}
   - component: {fileID: 5686734796749334712}
   - component: {fileID: 1446779222416472037}
+  - component: {fileID: 2887177341100222242}
+  - component: {fileID: 1452420406475382997}
   m_Layer: 0
   m_Name: Player Squidward SP
-  m_TagString: Squidward
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1687,6 +1689,31 @@ MonoBehaviour:
   force: 50
   isStickToPlayer: 0
   SoundEffect: {fileID: 5053790086289862368}
+--- !u!114 &2887177341100222242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5686734796749334719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c968ef6696672048b6c4d5de3e49a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1452420406475382997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5686734796749334719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ca4f4aec90552d48a63dcd95abfb5b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  opponent: {fileID: 0}
 --- !u!1 &5818456917225677315
 GameObject:
   m_ObjectHideFlags: 0

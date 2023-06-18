@@ -23,37 +23,50 @@ public class MoveAroundObject : MonoBehaviour
     private void Start()
     {
         // Set initial rotation to the rotation in the inspector
+        print(transform.rotation.eulerAngles);
         _currentRotation = transform.rotation.eulerAngles;
 
+        //_target = GameObject.FindGameObjectWithTag("CameraTarget").transform;
+
         // Calculate distance between camera and target
-        _initialDistance = Vector3.Distance(transform.position, _target.position);
+        //_initialDistance = Vector3.Distance(transform.position, _target.position);
     }
 
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * _mouseSensitivity;
-
-        _rotationY += mouseX;
-
-        Vector3 nextRotation = new Vector3(_currentRotation.x, _rotationY, _currentRotation.z);
-
-        // Apply damping between rotation changes
-        _currentRotation = Vector3.SmoothDamp(_currentRotation, nextRotation, ref _smoothVelocity, _smoothTime);
-        transform.localEulerAngles = _currentRotation;
-
-        // Calculate distance between camera and target
-        float distance = Vector3.Distance(transform.position, _target.position);
-
-        // Set the desired distance between the camera and the target
-        float desiredDistance = _initialDistance;
-
-        // Check if the player is moving backwards
-        if (Input.GetAxis("Vertical") < 0)
+        if(_target != null)
         {
-            desiredDistance = Mathf.Max(distance, _initialDistance);
-        }
+            float mouseX = Input.GetAxis("Mouse X") * _mouseSensitivity;
 
-        // Move the camera
-        transform.position = _target.position - transform.forward * desiredDistance;
+            _rotationY += mouseX;
+
+            Vector3 nextRotation = new Vector3(_currentRotation.x, _rotationY + 180, _currentRotation.z);
+
+            // Apply damping between rotation changes
+            _currentRotation = Vector3.SmoothDamp(_currentRotation, nextRotation, ref _smoothVelocity, _smoothTime);
+            transform.localEulerAngles = _currentRotation;
+
+            // Calculate distance between camera and target
+            float distance = Vector3.Distance(transform.position, _target.position);
+
+            // Set the desired distance between the camera and the target
+            float desiredDistance = _initialDistance;
+
+            // Check if the player is moving backwards
+            if (Input.GetAxis("Vertical") < 0)
+            {
+                desiredDistance = Mathf.Max(distance, _initialDistance);
+            }
+
+            // Move the camera
+            transform.position = _target.position - transform.forward * desiredDistance;
+        }
+        
+    }
+
+    public void setCamera(GameObject obj)
+    {
+        _target = obj.transform;
+        _initialDistance = Vector3.Distance(transform.position, _target.position);
     }
 }
