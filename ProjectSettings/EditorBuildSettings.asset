@@ -15,21 +15,27 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 1ef5a500cbc4de346b952abe68c41844
   - enabled: 1
+    path: Assets/Scenes/Level Selection.unity
+    guid: 3fe493d044e2229498f8f9e32404a417
+  - enabled: 1
+    path: Assets/Scenes/Character Selection.unity
+    guid: 72901fea26408534babec552203be12e
+  - enabled: 1
+    path: Assets/Scenes/Easy Level.unity
+    guid: 16fecabf24c8c3d4790b1b08fb4b0fd8
+  - enabled: 1
+    path: Assets/Scenes/Medium Level.unity
+    guid: c9c7eb62ccb013b4c9eb1ba024f59bbd
+  - enabled: 1
+    path: Assets/Scenes/Hard Level.unity
+    guid: ddb7938aeef65214ab2bca58da3fb56a
+  - enabled: 1
     path: Assets/Scenes/Lobby.unity
     guid: 4c1f191907129fa488f80083503e60ff
   - enabled: 1
     path: Assets/Scenes/Leaderboard.unity
     guid: cc28a187e0199e64ea2907acc9aca726
   - enabled: 1
-    path: Assets/Scenes/Easy Level.unity
-    guid: 16fecabf24c8c3d4790b1b08fb4b0fd8
-  - enabled: 1
     path: Assets/Scenes/GameMP.unity
     guid: f2367bb1d9c33a04299222e49a33fa49
-  - enabled: 1
-    path: Assets/Scenes/Asyiqin/CharacterSelection.unity
-    guid: 37f0451b0cfacba418e50194a6043797
-  - enabled: 1
-    path: Assets/Scenes/Asyiqin/GameTesting.unity
-    guid: afc36b588424ae546a0bdd426e6bb96d
   m_configObjects: {}
