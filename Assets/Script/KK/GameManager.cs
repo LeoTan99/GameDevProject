@@ -7,11 +7,12 @@ public class GameManager : MonoBehaviour
     public GameObject KrabbyPatty;
     public GameObject[] KrabbyPattySpawnLocation;
     public int spawnTime;
+    private int saveSpawnTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        saveSpawnTime = spawnTime;
     }
 
     // Update is called once per frame
@@ -28,7 +29,7 @@ public class GameManager : MonoBehaviour
 
         if (Time.time > spawnTime)
         {
-            spawnTime += 5;
+            spawnTime += saveSpawnTime;
             int randomSpawnLocation;
             randomSpawnLocation = Random.Range(0, KrabbyPattySpawnLocation.Length);
             Instantiate(KrabbyPatty, KrabbyPattySpawnLocation[randomSpawnLocation].transform.position, Quaternion.identity);

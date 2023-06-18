@@ -24,6 +24,13 @@ public class GetBallMP : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
+            GetBallMP[] getAllObject = FindObjectsOfType<GetBallMP>();
+
+            foreach(GetBallMP item in getAllObject)
+            {
+                item.isStickToPlayer = false;
+            }
+
             // Move the ball to the player's position
             isStickToPlayer = true;
             ball = other.gameObject;
@@ -55,6 +62,7 @@ public class GetBallMP : MonoBehaviour
             }
         }
 
+        
     }
 
     public void AIShoot()

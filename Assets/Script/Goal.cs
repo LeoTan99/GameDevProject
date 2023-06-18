@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 using TMPro;
 
 public class Goal : MonoBehaviour
@@ -11,7 +12,7 @@ public class Goal : MonoBehaviour
     
     public Transform spawnPoint;
     [SerializeField] private AudioSource SoundEffect;
-    public GameObject particleSystem;
+    public GameObject particleEffect;
 
     public float speed = 5f;
     bool moveKrabbyPatty;
@@ -24,15 +25,24 @@ public class Goal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        GetBallMP[] getAllObject = FindObjectsOfType<GetBallMP>();
+
+        foreach (GetBallMP item in getAllObject)
+        {
+            item.isStickToPlayer = false;
+        }
+
+
         if (other.gameObject.CompareTag("Ball"))
         {
             score++;
             point = point + 10;
             scoreText.text = score.ToString();
             pointText.text = point.ToString();
-            SoundEffect.Play();
-            particleSystem.SetActive(true);
+            //SoundEffect.Play();
+            //particleEffect.SetActive(true);
             // moveKrabbyPatty = true;
+            StartCoroutine(goalParticleEffect());
             
             Rigidbody ballRb = other.GetComponent<Rigidbody>();
             ballRb.velocity = Vector3.zero;
@@ -52,4 +62,12 @@ public class Goal : MonoBehaviour
     //         transform.position = Vector3.Lerp(transform.position, target.transform.position, speed * Time.deltaTime);
     //     }
     // }
+
+    private IEnumerator goalParticleEffect()
+    {
+        SoundEffect.Play();
+        particleEffect.SetActive(true);
+        yield return new WaitForSeconds(2);
+        particleEffect.SetActive(false);
+    }
 }
