@@ -15,7 +15,13 @@ public class SwapScene : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Leaderboard")
             BackgroundMusic.instance.GetComponent<AudioSource>().Pause();
 
-        if (SceneManager.GetActiveScene().name == "Game")
+        if (SceneManager.GetActiveScene().name == "Easy Level")
+            BackgroundMusic.instance.GetComponent<AudioSource>().Pause();
+
+        if (SceneManager.GetActiveScene().name == "Medium Level")
+            BackgroundMusic.instance.GetComponent<AudioSource>().Pause();
+
+        if (SceneManager.GetActiveScene().name == "Hard Level")
             BackgroundMusic.instance.GetComponent<AudioSource>().Pause();
 
         if (SceneManager.GetActiveScene().name == "GameMP")
