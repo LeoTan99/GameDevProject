@@ -18,6 +18,13 @@ public class AIGoal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        GetBallMP[] getAllObject = FindObjectsOfType<GetBallMP>();
+
+        foreach (GetBallMP item in getAllObject)
+        {
+            item.isStickToPlayer = false;
+        }
+
         if (other.gameObject.CompareTag("Ball"))
         {
             score++;
