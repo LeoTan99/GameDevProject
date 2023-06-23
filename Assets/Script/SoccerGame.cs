@@ -12,9 +12,13 @@ public class SoccerGame : MonoBehaviour
     public float countdownDuration = 5f;
     public float gameTimeDuration = 10f;
     private float timeRemaining;
-    public string goToScene;
+    /*public string goToScene;*/
+    public string goToBonusLevelScene;
+    public string goToMenuLevelScene;
 
     private bool isGameStarted = false;
+    private int playerScore = 0;
+    private int aiScore = 0;
     private string scoreGame;
     public string sceneMP;
 
@@ -64,7 +68,12 @@ public class SoccerGame : MonoBehaviour
         scoreGame = (goalScore * 10).ToString(); //this is only example calculation for score
         Debug.Log(scoreGame);
         saveScore();
-        SceneManager.LoadScene(goToScene);
+
+        /*SceneManager.LoadScene(goToScene);*/
+        playerScore = FindObjectOfType<Goal>().score;
+        aiScore = FindObjectOfType<AIGoal>().score;
+
+        CompareScoresAndLoadLevel();
     }
 
     private string FormatTime(float time)
@@ -72,6 +81,18 @@ public class SoccerGame : MonoBehaviour
         int minutes = Mathf.FloorToInt(time / 60f);
         int seconds = Mathf.FloorToInt(time % 60f);
         return string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
+    private void CompareScoresAndLoadLevel()
+    {
+        if (playerScore > aiScore)
+        {
+            SceneManager.LoadScene(goToBonusLevelScene);
+        }
+        else
+        {
+            SceneManager.LoadScene(goToMenuLevelScene);
+        }
     }
 
     public void saveScore()

@@ -9,6 +9,8 @@ public class AIGoal : MonoBehaviour
     public int score = 0;
     public int point = 0;
 
+    public int aiScore = 0;
+
     public Transform spawnPoint;
     [SerializeField] private AudioSource soundEffect;
     public GameObject particleSystem;
@@ -28,6 +30,7 @@ public class AIGoal : MonoBehaviour
         if (other.gameObject.CompareTag("Ball"))
         {
             score++;
+            aiScore++;
             point += 10;
             scoreText.text = score.ToString();
             pointText.text = point.ToString();

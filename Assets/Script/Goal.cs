@@ -9,7 +9,9 @@ public class Goal : MonoBehaviour
     public TextMeshProUGUI pointText;
     public int score = 0;
     public int point = 0;
-    
+
+    public int playerScore = 0;
+
     public Transform spawnPoint;
     [SerializeField] private AudioSource SoundEffect;
     public GameObject particleEffect;
@@ -36,6 +38,7 @@ public class Goal : MonoBehaviour
         if (other.gameObject.CompareTag("Ball"))
         {
             score++;
+            playerScore++;
             point = point + 10;
             scoreText.text = score.ToString();
             pointText.text = point.ToString();

@@ -38,4 +38,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameMP.unity
     guid: f2367bb1d9c33a04299222e49a33fa49
+  - enabled: 1
+    path: Assets/Scenes/Bonus Level.unity
+    guid: a606582c3d8b2a646ad887d4632ef99c
   m_configObjects: {}
