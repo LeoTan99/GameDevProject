@@ -22,6 +22,8 @@ public class SoccerGame : MonoBehaviour
     private string scoreGame;
     public string sceneMP;
 
+    public string currentScene;
+
     private void Start()
     {
         //currentSceneName = SceneManager.GetActiveScene().name;
@@ -90,6 +92,11 @@ public class SoccerGame : MonoBehaviour
             SceneManager.LoadScene(goToBonusLevelScene);
         }
         else
+        {
+            SceneManager.LoadScene(goToMenuLevelScene);
+        }
+
+        if (currentScene == "BonusLevel")
         {
             SceneManager.LoadScene(goToMenuLevelScene);
         }
