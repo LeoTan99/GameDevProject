@@ -23,6 +23,7 @@ public class SoccerGame : MonoBehaviour
     public string sceneMP;
 
     public string currentScene;
+    [SerializeField] private AudioSource SoundEffect;
 
     private void Start()
     {
@@ -47,6 +48,7 @@ public class SoccerGame : MonoBehaviour
         // Display "Start"
         timerText.text = "Start";
         isGameStarted = true;
+        SoundEffect.Play();
         yield return new WaitForSeconds(1f);
 
         // Game Time

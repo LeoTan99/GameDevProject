@@ -5,6 +5,7 @@ using UnityEngine;
 public class SurpriseElement : MonoBehaviour
 {
     public GameObject opponent;
+    [SerializeField] private AudioSource SoundEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +55,7 @@ public class SurpriseElement : MonoBehaviour
             }
 
             print("dice = " + dice);
+            SoundEffect.Play();
             Destroy(other.gameObject);
         }
     }
