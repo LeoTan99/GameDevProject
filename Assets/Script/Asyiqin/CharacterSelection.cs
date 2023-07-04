@@ -32,8 +32,8 @@ public class CharacterSelection : MonoBehaviour
             characterButtons[i].interactable = CanCharacterBeUnlocked(i);
         }
 
-        PlayerPrefs.SetInt("Points", 0);
-        PlayerPrefs.Save();
+/*        PlayerPrefs.SetInt("Points", 0);
+        PlayerPrefs.Save();*/
     }
 
     // Called when a character selection button is clicked
