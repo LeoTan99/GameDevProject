@@ -17,8 +17,20 @@ public class Goal : MonoBehaviour
     public float speed = 5f;
     bool moveKrabbyPatty;
 
+    private int pointValue;
+
     private void Start()
     {
+        if (PlayerPrefs.HasKey("PointValue"))
+        {
+            pointValue = PlayerPrefs.GetInt("PointValue");
+        }
+        else
+        {
+            // Default point value if not set in PlayerPrefs
+            pointValue = 1;
+        }
+
         // Retrieve the saved point value from PlayerPrefs
         if (PlayerPrefs.HasKey("Points"))
         {
@@ -41,7 +53,7 @@ public class Goal : MonoBehaviour
         {
             score++;
             playerScore++;
-            PointManager.instance.point += 10;
+            PointManager.instance.point += pointValue;
 
             scoreText.text = score.ToString();
             pointText.text = PointManager.instance.point.ToString();

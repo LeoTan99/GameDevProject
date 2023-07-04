@@ -8,23 +8,24 @@ public class LevelSelection : MonoBehaviour
     public Button mediumButton;
     public Button hardButton;
 
-    // Start is called before the first frame update
+    public int easyPoints = 1;
+    public int mediumPoints = 5;
+    public int hardPoints = 10;
+
     void Start()
     {
-        // Add click listeners to level selection buttons
-        easyButton.onClick.AddListener(() => LevelButtonClicked("Character Selection", "Easy Level"));
-        mediumButton.onClick.AddListener(() => LevelButtonClicked("Character Selection", "Medium Level"));
-        hardButton.onClick.AddListener(() => LevelButtonClicked("Character Selection", "Hard Level"));
+        easyButton.onClick.AddListener(() => LevelButtonClicked("Character Selection", "Easy Level", easyPoints));
+        mediumButton.onClick.AddListener(() => LevelButtonClicked("Character Selection", "Medium Level", mediumPoints));
+        hardButton.onClick.AddListener(() => LevelButtonClicked("Character Selection", "Hard Level", hardPoints));
     }
 
-    // Called when a level selection button is clicked
-    public void LevelButtonClicked(string nextScene, string gameScene)
+    public void LevelButtonClicked(string nextScene, string gameScene, int pointValue)
     {
-        // Store the selected game scene in PlayerPrefs
         PlayerPrefs.SetString("GameScene", gameScene);
+        PlayerPrefs.SetInt("PointValue", pointValue);
         PlayerPrefs.Save();
 
-        // Load the character selection scene
         SceneManager.LoadScene(nextScene);
     }
+
 }
