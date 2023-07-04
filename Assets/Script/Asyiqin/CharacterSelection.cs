@@ -41,8 +41,17 @@ public class CharacterSelection : MonoBehaviour
     {
         if (CanCharacterBeUnlocked(characterIndex))
         {
+            int cost = unlockCosts[characterIndex];
+
+            // Deduct the cost from available patty points
+            availablePatty -= cost;
+            UpdateAvailablePattyText(); //Update the display value
+
+
+
             // Store the selected character index in PlayerPrefs
             PlayerPrefs.SetInt("SelectedCharacter", characterIndex);
+            PlayerPrefs.SetInt("Points", availablePatty); //Update the points value in PlayerPrefs
             PlayerPrefs.Save();
 
             // Load the game scene based on the selected difficulty level
@@ -73,9 +82,17 @@ public class CharacterSelection : MonoBehaviour
         return false;
     }
 
-    // Set the number of available coins
+    // Set the number of available points
     public void SetAvailablePatty(int patty)
     {
         availablePatty = patty;
+        UpdateAvailablePattyText();
     }
+
+    private void UpdateAvailablePattyText()
+    {
+        availablePattyText.text = availablePatty.ToString();
+    }
+
+
 }
