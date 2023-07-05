@@ -6,6 +6,7 @@ using TMPro;
 public class GoalBonus : MonoBehaviour
 {
     public TextMeshProUGUI pointText;
+    public TextMeshProUGUI pointWinText;
     public int playerScore = 0;
 
     public Transform spawnPoint;
@@ -40,6 +41,7 @@ public class GoalBonus : MonoBehaviour
             PointManager.instance.point += 10;
 
             pointText.text = PointManager.instance.point.ToString();
+            pointWinText.text = PointManager.instance.point.ToString();
             StartCoroutine(goalParticleEffect());
 
             Rigidbody ballRb = other.GetComponent<Rigidbody>();

@@ -22,6 +22,10 @@ public class SoccerGame : MonoBehaviour
     private string scoreGame;
     public string sceneMP;
 
+    public GameObject canvasMenu;
+    public GameObject canvasWin;
+    public GameObject canvasLose;
+
     public string currentScene;
     [SerializeField] private AudioSource SoundEffect;
 
@@ -91,17 +95,37 @@ public class SoccerGame : MonoBehaviour
     {
         if (playerScore > aiScore)
         {
-            SceneManager.LoadScene(goToBonusLevelScene);
+            StartCoroutine(ShowCanvasWinAndLoadLevel());
         }
         else
         {
-            SceneManager.LoadScene(goToMenuLevelScene);
+            StartCoroutine(ShowGameOverAndLoadLevel());
         }
 
         if (currentScene == "BonusLevel")
         {
             SceneManager.LoadScene(goToMenuLevelScene);
         }
+    }
+
+    private IEnumerator ShowCanvasWinAndLoadLevel()
+    {
+        canvasMenu.SetActive(false);
+        canvasWin.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        canvasWin.SetActive(false);
+
+        SceneManager.LoadScene(goToBonusLevelScene);
+    }
+
+    private IEnumerator ShowGameOverAndLoadLevel()
+    {
+        canvasMenu.SetActive(false);
+        canvasLose.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        canvasLose.SetActive(false);
+
+        SceneManager.LoadScene(goToMenuLevelScene);
     }
 
     public void saveScore()

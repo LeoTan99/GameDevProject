@@ -7,6 +7,8 @@ public class Goal : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI pointText;
+    public TextMeshProUGUI pointWinText;
+    public TextMeshProUGUI pointLoseText;
     public int score = 0;
     public int playerScore = 0;
 
@@ -57,6 +59,8 @@ public class Goal : MonoBehaviour
 
             scoreText.text = score.ToString();
             pointText.text = PointManager.instance.point.ToString();
+            pointWinText.text = PointManager.instance.point.ToString();
+            pointLoseText.text = PointManager.instance.point.ToString();
             StartCoroutine(goalParticleEffect());
             
             Rigidbody ballRb = other.GetComponent<Rigidbody>();

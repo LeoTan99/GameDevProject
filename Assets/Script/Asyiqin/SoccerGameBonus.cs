@@ -18,11 +18,23 @@ public class SoccerGameBonus : MonoBehaviour
     public string currentScene;
     [SerializeField] private AudioSource SoundEffect;
 
+    public GameObject canvasMenu;
+    public GameObject canvasWelcome;
+    public GameObject canvasCompleted;
+
     private void Start()
     {
-        StartCoroutine(CountdownCoroutine());
+        StartCoroutine(ActivateCanvasWelcome());
 
         timeRemaining = gameTimeDuration;
+
+        StartCoroutine(CountdownCoroutine());
+    }
+
+    private IEnumerator ActivateCanvasWelcome()
+    {
+        yield return new WaitForSeconds(3f);
+        canvasWelcome.SetActive(false);
     }
 
     private IEnumerator CountdownCoroutine()
@@ -60,6 +72,9 @@ public class SoccerGameBonus : MonoBehaviour
         timerText.text = "Game Over";
         isGameStarted = false;
 
+        canvasMenu.SetActive(false);
+        canvasCompleted.SetActive(true);
+        yield return new WaitForSeconds(5f);
         SceneManager.LoadScene(goToScene);
     }
 
