@@ -54,6 +54,8 @@ public class SoccerGameBonus : MonoBehaviour
         SoundEffect.Play();
         yield return new WaitForSeconds(1f);
 
+        GameObject.FindGameObjectWithTag("Target").GetComponent<PlayerMovement>().enabled = true;
+
         // Game Time
         float gameTimer = 0f;
         while (gameTimer <= gameTimeDuration)

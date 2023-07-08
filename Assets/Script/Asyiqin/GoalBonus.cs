@@ -18,6 +18,8 @@ public class GoalBonus : MonoBehaviour
 
     private void Start()
     {
+       
+
         // Retrieve the saved point value from PlayerPrefs
         if (PlayerPrefs.HasKey("Points"))
         {

@@ -55,6 +55,9 @@ public class SoccerGame : MonoBehaviour
         SoundEffect.Play();
         yield return new WaitForSeconds(1f);
 
+        GameObject.FindGameObjectWithTag("Target").GetComponent<PlayerMovement>().enabled = true;
+        FindAnyObjectByType<AiOpponent>().enabled = true;
+
         // Game Time
         float gameTimer = 0f;
         while (gameTimer <= gameTimeDuration)
