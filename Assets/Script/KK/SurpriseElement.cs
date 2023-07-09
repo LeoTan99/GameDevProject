@@ -10,7 +10,7 @@ public class SurpriseElement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        opponent = GameObject.FindGameObjectWithTag("Squidward");
+        opponent = GameObject.FindGameObjectWithTag("AIOpponent");
     }
 
     // Update is called once per frame

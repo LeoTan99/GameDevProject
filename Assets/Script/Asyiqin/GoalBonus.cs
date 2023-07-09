@@ -50,6 +50,9 @@ public class GoalBonus : MonoBehaviour
             ballRb.velocity = Vector3.zero;
             ballRb.angularVelocity = Vector3.zero;
             other.gameObject.transform.position = spawnPoint.position;
+
+            //Animation reset
+            FindAnyObjectByType<plakGoalKeeper>().resetAnimation();
         }
 
         // Save the points value
