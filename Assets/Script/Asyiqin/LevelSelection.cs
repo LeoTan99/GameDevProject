@@ -8,9 +8,9 @@ public class LevelSelection : MonoBehaviour
     public Button mediumButton;
     public Button hardButton;
 
-    public int easyPoints = 1;
-    public int mediumPoints = 5;
-    public int hardPoints = 10;
+    public int easyPoints = 5;
+    public int mediumPoints = 10;
+    public int hardPoints = 15;
 
     void Start()
     {
