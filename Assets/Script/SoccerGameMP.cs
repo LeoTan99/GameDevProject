@@ -11,6 +11,8 @@ public class SoccerGameMP : MonoBehaviour
     public TextMeshProUGUI timerText;
     public float countdownDuration = 5f;
     public float gameTimeDuration = 10f;
+    private float timeRemaining;
+
     public string goToScene;
 
     private bool isGameStarted = false;
@@ -22,6 +24,8 @@ public class SoccerGameMP : MonoBehaviour
         //currentSceneName = SceneManager.GetActiveScene().name;
         view = GetComponent<PhotonView>();
         StartCoroutine(CountdownCoroutine());
+
+        timeRemaining = gameTimeDuration;
     }
 
     private IEnumerator CountdownCoroutine()
@@ -46,8 +50,10 @@ public class SoccerGameMP : MonoBehaviour
         {
             if (isGameStarted)
             {
-                timerText.text = FormatTime(gameTimer);
+                timerText.text = FormatTime(timeRemaining);
                 gameTimer++;
+
+                timeRemaining--;
             }
             yield return new WaitForSeconds(1f);
         }
