@@ -19,6 +19,9 @@ public class SoccerGameMP : MonoBehaviour
     private string scoreGame;
     public string sceneMP;
 
+    [SerializeField] private AudioSource SoundEffect;
+
+
     private void Start()
     {
         //currentSceneName = SceneManager.GetActiveScene().name;
@@ -42,6 +45,7 @@ public class SoccerGameMP : MonoBehaviour
         // Display "Start"
         timerText.text = "Start";
         isGameStarted = true;
+        SoundEffect.Play();
         yield return new WaitForSeconds(1f);
 
         // Game Time
