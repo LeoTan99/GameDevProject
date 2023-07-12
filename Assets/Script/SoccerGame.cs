@@ -36,14 +36,20 @@ public class SoccerGame : MonoBehaviour
         StartCoroutine(CountdownCoroutine());
 
         timeRemaining = gameTimeDuration;
+
+        FindAnyObjectByType<GameManager>().destroyBurger();
     }
 
     private IEnumerator CountdownCoroutine()
     {
+        
+
         // Countdown
         float countdownTimer = countdownDuration;
         while (countdownTimer >= 1)
         {
+            FindAnyObjectByType<GameManager>().destroyBurger();
+
             timerText.text = countdownTimer.ToString("0");
             yield return new WaitForSeconds(1f);
             countdownTimer--;

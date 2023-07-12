@@ -9,7 +9,8 @@ public class SpawnPlayerMP : MonoBehaviourPunCallbacks
 {
     public string[] playerName;
     public GameObject[] playerPrefabs;
-    public Vector3[] playerPos;
+    //public Vector3[] playerPos;
+    public GameObject[] playerPos;
     public Button[] characterSelectionButtons;
 
     // Start is called before the first frame update
@@ -28,14 +29,14 @@ public class SpawnPlayerMP : MonoBehaviourPunCallbacks
         {
             playerName[0] = PhotonNetwork.NickName;
             photonView.RPC("Set_OtherPlayerName", RpcTarget.OthersBuffered, 0, PhotonNetwork.NickName);
-            SpawnPlayerWithCharacter(index, playerPos[0], Quaternion.identity);
+            SpawnPlayerWithCharacter(index, playerPos[0].transform.position, playerPos[0].transform.rotation);
         }
         else
         {
             playerName[1] = PhotonNetwork.NickName;
             photonView.RPC("Set_OtherPlayerName", RpcTarget.OthersBuffered, 1, PhotonNetwork.NickName);
             Quaternion rotationB = Quaternion.Euler(0f, 180f, 0f);
-            SpawnPlayerWithCharacter(index, playerPos[1], rotationB);
+            SpawnPlayerWithCharacter(index, playerPos[1].transform.position, playerPos[1].transform.rotation);
         }
 
         // Disable the canvas game object

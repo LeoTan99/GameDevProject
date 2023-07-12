@@ -15,7 +15,7 @@ public class Goal : MonoBehaviour
     public Transform spawnPoint;
     [SerializeField] private AudioSource SoundEffect;
     public GameObject ConfettiParticleEffect;
-    public GameObject EtherealHitParticleEffect;
+    //public GameObject EtherealHitParticleEffect;
 
     public float speed = 5f;
     bool moveKrabbyPatty;
@@ -79,9 +79,9 @@ public class Goal : MonoBehaviour
     {
        SoundEffect.Play();
         ConfettiParticleEffect.SetActive(true);
-        EtherealHitParticleEffect.SetActive(true);
+        //EtherealHitParticleEffect.SetActive(true);
         yield return new WaitForSeconds(2);
         ConfettiParticleEffect.SetActive(false);
-        EtherealHitParticleEffect.SetActive(false);
+        //EtherealHitParticleEffect.SetActive(false);
     }
 }
