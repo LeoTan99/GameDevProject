@@ -2135,6 +2135,7 @@ MonoBehaviour:
   keyShoot: 32
   force: 50
   isStickToPlayer: 0
+  ball: {fileID: 0}
   SoundEffect: {fileID: 2735764390794860151}
 --- !u!1 &8452154634154480759
 GameObject:
