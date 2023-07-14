@@ -9,12 +9,7 @@ public class CameraSetup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        view = GetComponent<PhotonView>();
-
-        if (view.IsMine)
-        {
             FindAnyObjectByType<MoveAroundObject>().setCamera(transform.GetChild(3).gameObject);
-        }
     }
 
     // Update is called once per frame
