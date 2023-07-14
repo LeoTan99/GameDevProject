@@ -11,7 +11,7 @@ public class PlayerMovementMP : MonoBehaviour
     PhotonView view;
 
     [SerializeField]
-    private float _playerSpeed = 5f;
+    public float _playerSpeed = 5f;
 
     [SerializeField]
     private float _rotationSpeed = 10f;
