@@ -947,7 +947,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5443700267215919244}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.01, y: 0.33000013, z: 0.84}
+  m_LocalPosition: {x: -0.01, y: 0.33000013, z: 1.19}
   m_LocalScale: {x: 0.33333337, y: 0.33333337, z: 0.33333334}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1968,6 +1968,7 @@ GameObject:
   - component: {fileID: 8238101014063929546}
   - component: {fileID: 8238101014063929547}
   - component: {fileID: 8238101014063929556}
+  - component: {fileID: -2371551273937382063}
   m_Layer: 0
   m_Name: Player Patrick MP
   m_TagString: Untagged
@@ -2131,12 +2132,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7acc1b797c6ef6f428f39e488b18e75f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMP: 1
   ball_pos: {fileID: 5443700267215919235}
   keyShoot: 32
   force: 50
   isStickToPlayer: 0
   ball: {fileID: 0}
   SoundEffect: {fileID: 2735764390794860151}
+--- !u!114 &-2371551273937382063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8238101014063929558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c968ef6696672048b6c4d5de3e49a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8452154634154480759
 GameObject:
   m_ObjectHideFlags: 0

@@ -1348,6 +1348,7 @@ GameObject:
   - component: {fileID: 5269386761312424476}
   - component: {fileID: 5269386761312424479}
   - component: {fileID: 5269386761312424478}
+  - component: {fileID: -8093595246110021932}
   m_Layer: 0
   m_Name: Player Squidward MP
   m_TagString: Untagged
@@ -1511,11 +1512,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7acc1b797c6ef6f428f39e488b18e75f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMP: 1
   ball_pos: {fileID: 5035576917751758320}
   keyShoot: 32
   force: 50
   isStickToPlayer: 0
+  ball: {fileID: 0}
   SoundEffect: {fileID: 9193881501795863110}
+--- !u!114 &-8093595246110021932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5269386761312424472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c968ef6696672048b6c4d5de3e49a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5352455458467735504
 GameObject:
   m_ObjectHideFlags: 0

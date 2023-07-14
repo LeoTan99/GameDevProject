@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GetBallMP : MonoBehaviourPunCallbacks
 {
+    public bool isMP;
     public Transform ball_pos;
     public KeyCode keyShoot;
     public float force = 10f;
@@ -40,7 +41,11 @@ public class GetBallMP : MonoBehaviourPunCallbacks
 
             
             ball1 = other.gameObject;
-            photonView.RPC("Set_OtherPlayerBall", RpcTarget.OthersBuffered);
+            if (isMP)
+            {
+                photonView.RPC("Set_OtherPlayerBall", RpcTarget.OthersBuffered);
+            }
+            
         }
     }
 
@@ -56,7 +61,15 @@ public class GetBallMP : MonoBehaviourPunCallbacks
             previousLocation = currentLocation;
 
             
-                if (Input.GetKeyDown(keyShoot))
+             if (Input.GetKeyDown(keyShoot))
+             {
+                
+
+                if (isMP)
+                {
+                    photonView.RPC("Set_OtherPlayerKick", RpcTarget.All);
+                }
+                else if(isMP == false)
                 {
                     // Release the ball and apply the kick force
                     Debug.Log("Have kicked");
@@ -67,10 +80,9 @@ public class GetBallMP : MonoBehaviourPunCallbacks
                     //shootDirection.y += 0.5f;
 
                     ballRigidbody.AddForce(shootDirection * force, ForceMode.Impulse);
-
-
-                    //photonView.RPC("Set_OtherPlayerKick", RpcTarget.OthersBuffered);
                 }
+                    
+             }
             
             
         }

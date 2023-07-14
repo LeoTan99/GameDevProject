@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MoveAroundObject : MonoBehaviour
 {
+    public float addRotation; 
+
     [SerializeField]
     private float _mouseSensitivity;
 
@@ -40,7 +42,7 @@ public class MoveAroundObject : MonoBehaviour
 
             _rotationY += mouseX;
 
-            Vector3 nextRotation = new Vector3(_currentRotation.x, _rotationY + 180, _currentRotation.z);
+            Vector3 nextRotation = new Vector3(_currentRotation.x, _rotationY + addRotation, _currentRotation.z);
 
             // Apply damping between rotation changes
             _currentRotation = Vector3.SmoothDamp(_currentRotation, nextRotation, ref _smoothVelocity, _smoothTime);
